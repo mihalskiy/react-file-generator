@@ -34,8 +34,8 @@ const HotelBook = () => {
         return response.blob()
       })
       .then((blob: Blob) => {
-        setDuttonStatus(false)
         fileSaver.saveAs(blob, `file.${appState.convertType}`)
+        setDuttonStatus(false)
       })
       .catch((error: Error) => {
         setDuttonStatus(false)
@@ -63,7 +63,8 @@ const HotelBook = () => {
             </Row>
             <AdditionalPhoto />
             <ChooseTypeDocument />
-            <Button type={'submit'} disabled={buttonStatus}>Submit</Button>
+            <Button type={'submit'} disabled={buttonStatus}>
+              Submit</Button>
           </Form>
         </Col>
       </Row>
