@@ -1,12 +1,7 @@
 export const HotelBookDefaultDate = {
   hotel: 'Hotel Book',
   formData: {
-    guestDetails: [
-      { label: 'firstName', value: 'First name' },
-      { label: 'Last name', value: 'Last name' },
-      { label: 'Document type', value: 'Document type' },
-      { label: 'Document ', value: 'Document ' },
-    ],
+    guestDetails: [{ label: '', value: '' }],
     files: {
       label: '',
       images: [],

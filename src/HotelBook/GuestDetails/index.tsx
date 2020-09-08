@@ -54,6 +54,7 @@ const GuestDetails: React.FC = () => {
               <Form.Control
                 type="text"
                 value={guestDetail.label}
+                placeholder={'Enter column name'}
                 onChange={(event: ChangeEvent<HTMLInputElement>) =>
                   handleListChange(index, event, 'label')
                 }
@@ -64,6 +65,7 @@ const GuestDetails: React.FC = () => {
               <Form.Control
                 type="text"
                 value={guestDetail.value}
+                placeholder={'Enter column value'}
                 onChange={(event: ChangeEvent<HTMLInputElement>) =>
                   handleListChange(index, event, 'value')
                 }
