@@ -64,7 +64,8 @@ const HotelBook = () => {
             <AdditionalPhoto />
             <ChooseTypeDocument />
             <Button type={'submit'} disabled={buttonStatus}>
-              Submit</Button>
+              Submit
+            </Button>
           </Form>
         </Col>
       </Row>
