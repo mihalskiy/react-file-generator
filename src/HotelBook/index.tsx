@@ -10,14 +10,14 @@ import ChooseTypeDocument from './ChooseTypeDocument'
 import { useAppState } from '@laststance/use-app-state'
 import { HotelBookInterface } from './HotelBookInterface'
 
-const APIGenerateDocument = 'http://localhost:8080/generate-document'
+const APIGenerateDocument = process.env.API_GENERATE_DOCUMENT ?? 'http://localhost:8080/'
 
 const HotelBook = () => {
   const [appState] = useAppState<HotelBookInterface>()
 
   const submitDocumentForm = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault()
-    fetch(APIGenerateDocument, {
+    fetch(APIGenerateDocument + 'generate-document', {
       method: 'POST',
       mode: 'cors',
       redirect: 'follow',
