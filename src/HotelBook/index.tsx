@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import * as fileSaver from 'file-saver'
 import { Col, Form, Container, Row, Button } from 'react-bootstrap'
 import GuestDetails from './GuestDetails'
@@ -14,9 +14,11 @@ const APIGenerateDocument = 'https://agile-basin-76586.herokuapp.com/'
 
 const HotelBook = () => {
   const [appState] = useAppState<HotelBookInterface>()
+  const [buttonStatus, setDuttonStatus] = useState(false)
 
   const submitDocumentForm = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault()
+    setDuttonStatus(true)
     fetch(APIGenerateDocument + 'generate-document', {
       method: 'POST',
       mode: 'cors',
@@ -32,9 +34,11 @@ const HotelBook = () => {
         return response.blob()
       })
       .then((blob: Blob) => {
+        setDuttonStatus(false)
         fileSaver.saveAs(blob, `file.${appState.convertType}`)
       })
       .catch((error: Error) => {
+        setDuttonStatus(false)
         throw error
       })
   }
@@ -59,7 +63,7 @@ const HotelBook = () => {
             </Row>
             <AdditionalPhoto />
             <ChooseTypeDocument />
-            <Button type={'submit'}>Submit</Button>
+            <Button type={'submit'} disabled={buttonStatus}>Submit</Button>
           </Form>
         </Col>
       </Row>
