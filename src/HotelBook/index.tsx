@@ -11,7 +11,7 @@ import { useAppState } from '@laststance/use-app-state'
 import { HotelBookInterface } from './HotelBookInterface'
 
 const APIGenerateDocument =
-  process.env.API_GENERATE_DOCUMENT ?? 'http://localhost:8080/'
+  process.env.API_GENERATE_DOCUMENT || 'http://localhost:8080/'
 
 const HotelBook = () => {
   const [appState] = useAppState<HotelBookInterface>()
