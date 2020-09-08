@@ -10,7 +10,9 @@ import ChooseTypeDocument from './ChooseTypeDocument'
 import { useAppState } from '@laststance/use-app-state'
 import { HotelBookInterface } from './HotelBookInterface'
 
-const APIGenerateDocument = 'https://agile-basin-76586.herokuapp.com/'
+const APIGenerateDocument =
+  process.env.REACT_APP_API_GENERATE_DOCUMENT ??
+  'http://localhost:8080/'
 
 const HotelBook = () => {
   const [appState] = useAppState<HotelBookInterface>()
